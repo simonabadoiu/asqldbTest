@@ -1,6 +1,7 @@
 package test.java.org.n52.hibernate;
 
 import java.io.Serializable;
+import java.sql.Array;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,9 +9,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
+import main.java.org.n52.sos.config.rasdaman.HibernateMArrayType;
+import rasj.RasGMArray;
+
 @Entity
-@Table (name = "Person")
-public class Person implements Serializable
+@Table (name = "Rastest")
+public class Rastest implements Serializable
 {
     /**
      * 
@@ -22,17 +28,19 @@ public class Person implements Serializable
     @Column(name = "Id")
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Type(type = "main.java.org.n52.sos.config.rasdaman.HibernateMArrayType")
+    private RasGMArray coll;
+    
 
-    public Person()
+    public Rastest()
     {
 
     }
-    public Person(int id, String name) {
+    
+    public Rastest(int id, RasGMArray coll) {
         super();
         this.id = id;
-        this.name = name;
+        this.coll = coll;
     }
     public int getId() {
         return id;
@@ -40,10 +48,12 @@ public class Person implements Serializable
     public void setId(int id) {
         this.id = id;
     }
-    public String getName() {
-        return name;
+    
+    public RasGMArray getColl() {
+        return coll;
     }
-    public void setName(String name) {
-        this.name = name;
+    
+    public void setColl(RasGMArray coll) {
+        this.coll = coll;
     }
 }

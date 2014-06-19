@@ -1,5 +1,7 @@
 package test.java.org.n52.hibernate;
 
+import java.sql.Types;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -79,6 +81,7 @@ public class RunExample
 	public static void main(String[] args)
 	{               
 		Session session = null;
+		System.out.println(Types.ARRAY);
 		insert("Andreea");
 		select("Andreea");
 	}
