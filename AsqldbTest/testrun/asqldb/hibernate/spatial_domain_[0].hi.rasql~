@@ -1,1 +1,0 @@
-select sdom(coll)[0].hi from rastest;

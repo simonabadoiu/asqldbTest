@@ -1,1 +1,0 @@
-select coll.1 - coll2.2 from rgb;

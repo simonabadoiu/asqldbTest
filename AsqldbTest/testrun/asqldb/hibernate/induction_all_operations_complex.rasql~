@@ -1,1 +1,0 @@
-select id, complex(cos(coll), -sin(coll)) from rastest;

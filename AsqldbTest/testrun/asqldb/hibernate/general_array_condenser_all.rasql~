@@ -1,1 +1,0 @@
-select aggregate and over sdom(coll) using coll[d0, d1] from rastest;

@@ -1,1 +1,0 @@
-select a.coll - b.coll from rastest as a, rastest2 as b;

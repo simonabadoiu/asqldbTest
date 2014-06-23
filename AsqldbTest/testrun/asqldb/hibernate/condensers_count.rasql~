@@ -1,1 +1,0 @@
-select count_cells( coll >-1) from rastest;

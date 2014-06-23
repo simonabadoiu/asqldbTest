@@ -1,1 +1,0 @@
-select id, mod(coll, 2) from rastest;

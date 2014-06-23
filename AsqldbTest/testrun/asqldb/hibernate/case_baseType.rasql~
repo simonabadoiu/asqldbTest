@@ -1,1 +1,0 @@
-select case when coll>0 then 1c else 0c end from rastest;
