@@ -1,5 +1,7 @@
 package test.java.org.n52.hibernate;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -53,13 +55,13 @@ public class RastestExample
                 System.out.println("Selecting Records");
                 Transaction tx = session.beginTransaction();
 
-                Rastest rastest = (Rastest) session.createCriteria(Rastest.class)
+                List<Rastest> rastest = session.createCriteria(Rastest.class)
                         .add(Restrictions.eq("id",id))
-                        .uniqueResult();
+                        .list();
 
 
-                System.out.println("The result is :" + rastest.getId() + 
-                        "  " + rastest.getColl());
+                System.out.println("The result is :" + rastest.get(0).getId() + 
+                        "  " + rastest.get(0).getColl());
 
                 tx.commit();
                 System.out.println("Select Done");
@@ -75,7 +77,7 @@ public class RastestExample
             session.close();
         }
     }
-
+    
     public static void main(String[] args)
     {               
         Session session = null;

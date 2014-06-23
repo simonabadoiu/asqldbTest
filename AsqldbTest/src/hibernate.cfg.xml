@@ -23,6 +23,7 @@
 <!-- Mapping classes -->
 <mapping class="test.java.org.n52.hibernate.Person" />
 <mapping class="test.java.org.n52.hibernate.Rastest" />
+<mapping class="test.java.org.n52.hibernate.RastestNoArray" />
 
 </session-factory>
 </hibernate-configuration>

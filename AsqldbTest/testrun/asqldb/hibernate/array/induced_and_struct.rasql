@@ -1,0 +1,1 @@
+select id, coll + 5 as coll from rastest;

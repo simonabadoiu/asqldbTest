@@ -1,0 +1,1 @@
+select 2/3 as coll from rastest;

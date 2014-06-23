@@ -1,0 +1,1 @@
+select arctan(1) as coll from rastest;

@@ -1,0 +1,1 @@
+select id, a.coll - b.coll as coll from rastest as a, rastest2 as b;

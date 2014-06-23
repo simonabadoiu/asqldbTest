@@ -3,6 +3,7 @@ package test.java.org.n52.hibernate;
 import java.sql.Array;
 
 import main.java.org.n52.sos.config.rasdaman.HibernateMArrayType;
+import main.java.org.n52.sos.config.rasdaman.HibernateMIntervalType;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -20,9 +21,11 @@ public class AppFactory {
 		try {
 			Configuration configuration=new Configuration();
 			
-//			configuration.registerTypeOverride(new ArrayUserType(), new String[] { "array", Array.class.getName() });
+			configuration.addAnnotatedClass(RastestConst.class);
+			configuration.addAnnotatedClass(RastestConstByte.class);
+			configuration.addAnnotatedClass(RastestMInterval.class);
 			configuration.registerTypeOverride(new HibernateMArrayType(), new String[] { "array", Array.class.getName() });
-//					.configure(); // configures settings from hibernate.cfg.xml
+			configuration.registerTypeOverride(new HibernateMIntervalType(), new String[] {"interval", String.class.getName()});
 			configuration.configure();
 			
 			StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();

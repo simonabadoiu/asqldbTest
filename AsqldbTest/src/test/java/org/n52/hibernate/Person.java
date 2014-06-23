@@ -10,8 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name = "Person")
-public class Person implements Serializable
-{
+public class Person implements Serializable {
     /**
      * 
      */
@@ -25,10 +24,10 @@ public class Person implements Serializable
     @Column(name = "name")
     private String name;
 
-    public Person()
-    {
+    public Person() {
 
     }
+    
     public Person(int id, String name) {
         super();
         this.id = id;

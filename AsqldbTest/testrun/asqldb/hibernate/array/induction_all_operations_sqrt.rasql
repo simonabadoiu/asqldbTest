@@ -1,0 +1,1 @@
+select id, sqrt(coll) as coll from rastest;

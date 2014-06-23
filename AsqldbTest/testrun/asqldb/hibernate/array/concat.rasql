@@ -1,0 +1,1 @@
+select id, concat coll with coll along 0 as coll from rastest;

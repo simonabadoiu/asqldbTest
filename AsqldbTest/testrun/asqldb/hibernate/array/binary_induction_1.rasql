@@ -1,0 +1,1 @@
+select id, coll.1 - coll2.2 as coll from rgb;

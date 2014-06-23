@@ -1,0 +1,1 @@
+select id, sin(coll) as coll from rastest;

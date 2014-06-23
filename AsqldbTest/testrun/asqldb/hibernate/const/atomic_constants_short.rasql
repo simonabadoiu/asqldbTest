@@ -1,0 +1,1 @@
+select 24s as coll from rastest;

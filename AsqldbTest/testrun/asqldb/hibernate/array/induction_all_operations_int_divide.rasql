@@ -1,0 +1,1 @@
+select id, div(coll, coll2) as coll from rastest2;

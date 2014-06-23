@@ -1,0 +1,1 @@
+select id, scale( coll, [ 4, 3 ] ) as coll from rastest;

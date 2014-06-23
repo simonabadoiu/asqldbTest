@@ -16,8 +16,7 @@ import rasj.RasGMArray;
 
 @Entity
 @Table (name = "Rastest")
-public class Rastest implements Serializable
-{
+public class Rastest implements Serializable {
     /**
      * 
      */
@@ -28,12 +27,12 @@ public class Rastest implements Serializable
     @Column(name = "Id")
     private int id;
 
+    @Column(name = "coll")
     @Type(type = "main.java.org.n52.sos.config.rasdaman.HibernateMArrayType")
     private RasGMArray coll;
     
 
-    public Rastest()
-    {
+    public Rastest() {
 
     }
     
