@@ -6,4 +6,4 @@ Now that you have installed Rasdaman, you can clone this project and import it i
 
 Runnin HibernateMArrayQueryTest will test all the queries from testrun/hibernate. Currently, if everything is correctly installed, 22 tests will fail from a total of 104.
 
-Please check the [ASQLDB project](https://github.com/misev/asqldb) for more info about it, especially if setting up for the first time.
+Please check the [ASQLDB readme](https://github.com/misev/asqldb/blob/master/README.md) for more info about it, especially if setting up for the first time.
