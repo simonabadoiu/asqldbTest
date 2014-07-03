@@ -38,7 +38,7 @@ public class HibernateMArrayQueryTest {
     private static SessionFactory sessionFactory = null;
     public static final String DEFAULT_DB_FILE = "/var/hsqldb/test/db";
 
-    private String dbFile = DEFAULT_DB_FILE;
+    private static String dbFile = DEFAULT_DB_FILE;
 
     public static RastestConst executeConstAsqlQuery(String asqlQuery) {
         Session       session = null;
@@ -60,7 +60,7 @@ public class HibernateMArrayQueryTest {
                 tx.commit();
                 System.out.println("Select Done");
             } catch (Exception e) {
-//                e.printStackTrace();
+                //                e.printStackTrace();
                 System.err.println("The query can't be executed. RastestConst");
                 return rastest;
             }
@@ -91,7 +91,7 @@ public class HibernateMArrayQueryTest {
                 tx.commit();
                 System.out.println("Select Done");
             } catch (Exception e) {
-//                e.printStackTrace();
+                //                e.printStackTrace();
                 System.err.println("The query can't be executed. RastestConstVarChar");
                 return rastest;
             }
@@ -121,7 +121,7 @@ public class HibernateMArrayQueryTest {
                 tx.commit();
                 System.out.println("Select Done");
             } catch (Exception e) {
-//                e.printStackTrace();
+                //                e.printStackTrace();
                 System.err.println("The query can't be executed");
                 return rastest;
             }
@@ -192,7 +192,7 @@ public class HibernateMArrayQueryTest {
         return rastest;
     }
 
-    public Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         Connection conn;
         Properties connectionProps = new Properties();
         connectionProps.put("user", "SA");
@@ -254,12 +254,23 @@ public class HibernateMArrayQueryTest {
         }
     }
 
-    private boolean executeQuery(final Connection conn, final String query) throws SQLException{
+    private static boolean executeQuery(final Connection conn, final String query) throws SQLException{
         System.out.printf("Executing query: "+ query);
         Statement stmt = null;
         try {
             stmt = conn.createStatement();
             stmt.executeQuery(query);
+//            ResultSet result = stmt.executeQuery(query);
+           /* int i = 1;
+            while (result.next()) {
+                System.out.println(result.getMetaData().getColumnName(1) + 
+                        "\t|\t" +
+                        result.getMetaData().getColumnName(2));
+                System.out.print(result.getObject(1) + 
+                        "\t|\t" +
+                        result.getObject(2));
+                System.out.println();
+            }*/
         } catch (SQLException e) {
             return false;
         } finally {
@@ -414,12 +425,12 @@ public class HibernateMArrayQueryTest {
             String asqldbQuery = reader.readLine();
             String hibernateQuery = reader1.readLine();
 
-            System.out.println("File: " + fileHibernate.getAbsolutePath());
-            System.out.println("AsqlQuery : " + asqldbQuery);
+//            System.out.println("File: " + fileHibernate.getAbsolutePath());
+//            System.out.println("AsqlQuery : " + asqldbQuery);
 
             Object asqlResult = getAsqlResult(connection, asqldbQuery, index);
             hibernateQuery = escape(hibernateQuery);
-            System.out.println("Hibernate Query :" + hibernateQuery);
+//            System.out.println("Hibernate Query :" + hibernateQuery);
             Object tocompare = null;
             if (folder.contains("array")) {
                 Rastest result = executeMArrayAsqlQuery(hibernateQuery);
@@ -513,7 +524,12 @@ public class HibernateMArrayQueryTest {
     public static void main(String[] args) throws SQLException {  
         HibernateMArrayQueryTest hib = new HibernateMArrayQueryTest();
         try {
-            hib.runTest();
+            Connection conn = getConnection();
+//            executeQuery(conn, "select id, coll + 5 as coll from rastest");
+//            executeQuery(conn, "select id, sdom(coll) as coll from rastest");
+//            executeQuery(conn, "select id, coll[ 100, 150 ] as coll from rastest");
+//            executeQuery(conn, "select id, 24c as coll from rastest");
+              hib.runTest();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
